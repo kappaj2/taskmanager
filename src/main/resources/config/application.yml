@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: taskmanager
+  batch:
+    taskmanager:
+      fixedrate: 60000
+
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://localhost:3306/taskmanager_db
+    username: root
+    password: admin
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      data-source-properties:
+        cachePrepStmts: true
+        prepStmtCacheSize: 250
+        prepStmtCacheSqlLimit: 2048
+        useServerPrepStmts: true
+
+#  datasource:
+#    url: jdbc:h2:file:~/PUBLIC;DB_CLOSE_ON_EXIT=TRUE;mode=mysql
+#    username:  sa
+#    driver-class-name: org.h2.Driver
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    database: MYSQL
+    show-sql: false
+
+  h2:
+    console:
+      enabled: true
+      path: /h2
+

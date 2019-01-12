@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: taskmanager
+  jackson:
+    deserialization:
+      ACCEPT_SINGLE_VALUE_AS_ARRAY: true
+
+  datasource:
+    url: ${taskmanager.jdbc}
+    username:  ${taskmanager.user}
+    driver-class-name: org.h2.Driver
+
+logging:
+  level:
+    ROOT: DEBUG
+    com.ajk.taskman: DEBUG
+
+flyway:
+  url: ${taskmanager.jdbc}
+  user: ${taskmanager.user}
+  baseline-on-migrate: true
+  locations: classpath:db/migration
+  placeholders:
+    application: "taskmanager"
+  enabled: true
+  clean-on-validation-error: true
+
+taskmanager:
+  jdbc: jdbc:h2:mem:~/taskmanager_db;DB_CLOSE_ON_EXIT=TRUE;mode=mysql
+  user: "sa"
+
+
