@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories("com.ajk.taskman.repository")
-@Profile("default")
 public class DatasourceConfig {
 
     private final Environment env;

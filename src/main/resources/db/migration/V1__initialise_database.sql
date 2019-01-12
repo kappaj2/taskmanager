@@ -1,5 +1,5 @@
 
-CREATE TABLE `taskmanager_db`.`application` (
+CREATE TABLE `application` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(50),
   `created_at` TIMESTAMP NOT NULL DEFAULT NOW() ,

@@ -3,6 +3,7 @@ package com.ajk.taskman.web.controller;
 import com.ajk.taskman.AbstractTest;
 import com.ajk.taskman.IntegrationTest;
 import com.ajk.taskman.TaskmanagerApplication;
+import com.ajk.taskman.config.H2TestProfileJPAConfig;
 import com.ajk.taskman.pojo.UserPojo;
 import com.ajk.taskman.service.TaskService;
 import com.ajk.taskman.service.UserService;
@@ -28,7 +29,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @ActiveProfiles("test")
 @Category(IntegrationTest.class)
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = {TaskmanagerApplication.class}, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(classes = {TaskmanagerApplication.class, H2TestProfileJPAConfig.class}, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class UserControllerTest extends AbstractTest {
 
     private Integer createdUserId;

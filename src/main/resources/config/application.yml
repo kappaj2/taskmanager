@@ -4,6 +4,8 @@ spring:
   batch:
     taskmanager:
       fixedrate: 60000
+  main:
+    allow-bean-definition-overriding: true
 
   datasource:
     type: com.zaxxer.hikari.HikariDataSource

@@ -4,6 +4,8 @@ spring:
   jackson:
     deserialization:
       ACCEPT_SINGLE_VALUE_AS_ARRAY: true
+  main:
+    allow-bean-definition-overriding: true
 
   datasource:
     url: ${taskmanager.jdbc}
@@ -26,7 +28,10 @@ flyway:
   clean-on-validation-error: true
 
 taskmanager:
-  jdbc: jdbc:h2:mem:~/taskmanager_db;DB_CLOSE_ON_EXIT=TRUE;mode=mysql
+  jdbc: jdbc:h2:mem:~/taskmanager_db;DATABASE_TO_UPPER=false;DB_CLOSE_ON_EXIT=TRUE;mode=mysql
   user: "sa"
 
-
+  h2:
+    console:
+      enabled: true
+      path: /h2
