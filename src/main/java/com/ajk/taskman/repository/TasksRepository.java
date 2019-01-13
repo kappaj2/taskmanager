@@ -16,6 +16,8 @@ public interface TasksRepository extends JpaRepository<Task, Integer> {
 
     List<Task> findAllByUser(User user);
 
-    @Query(value = "SELECT * FROM tasks WHERE id = taskId and user_id = user_id", nativeQuery = true)
+    @Query(value = "SELECT * FROM tasks WHERE users_id = ?1 and  id = ?2", nativeQuery = true)
     Task findByUserAndTaskId(Integer userId, Integer taskId);
+
+    Task findByTask(String taskName);
 }

@@ -10,6 +10,7 @@ import org.mapstruct.Mappings;
 public abstract class TaskMapper extends AbstractMapper {
 
     @Mappings({
+            @Mapping(source = "id", target = "id"),
             @Mapping(source = "task", target = "name"),
             @Mapping(source = "description", target = "description"),
             @Mapping(source = "dateTime", target = "dateTime")
@@ -17,6 +18,7 @@ public abstract class TaskMapper extends AbstractMapper {
     public abstract TaskPojo asPojo(Task task);
 
     @Mappings({
+            @Mapping(source = "id", target = "id"),
             @Mapping(source = "name", target = "task"),
             @Mapping(source = "description", target = "description"),
             @Mapping(source = "dateTime", target = "dateTime")

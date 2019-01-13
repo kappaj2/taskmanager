@@ -38,36 +38,36 @@ public class DataInitializer implements CommandLineRunner {
     @Transactional
     public void run(String... args) throws Exception {
 
-        /*
-            Clean all the old tasks for the test user and then create a new one.
-         */
-        String userName = "testuser";
-        User testUser = usersRepository.findUsersByUsername(userName);
-
-        log.info("Found test user with id : " + testUser.getId());
-
-        List<Task> userTaskList = tasksRepository.findAllByUser(testUser);
-        userTaskList.stream().forEach(task -> {
-            tasksRepository.delete(task);
-        });
-        tasksRepository.flush();
-
-        /*
-            Now create test tasks with status pending ...
-         */
-        TaskStatus pendingStatus = taskStatusRepository.getOne("pending");
-
-        Task pendingTask = new Task();
-        pendingTask.setCreatedAt(new Date());
-        pendingTask.setModifiedAt(new Date());
-        pendingTask.setDateTime(new Date());
-        pendingTask.setDescription("Test task number 1");
-        pendingTask.setTask("Fix bug in query");
-        pendingTask.setTaskStatusBean(pendingStatus);
-        pendingTask.setUser(testUser);
-
-        tasksRepository.save(pendingTask);
-
-        log.info("Success doing initial data insert. All seems to work fine on application startup.");
+//        /*
+//            Clean all the old tasks for the test user and then create a new one.
+//         */
+//        String userName = "testuser";
+//        User testUser = usersRepository.findUsersByUsername(userName);
+//
+//        log.info("Found test user with id : " + testUser.getId());
+//
+//        List<Task> userTaskList = tasksRepository.findAllByUser(testUser);
+//        userTaskList.stream().forEach(task -> {
+//            tasksRepository.delete(task);
+//        });
+//        tasksRepository.flush();
+//
+//        /*
+//            Now create test tasks with status pending ...
+//         */
+//        TaskStatus pendingStatus = taskStatusRepository.getOne("pending");
+//
+//        Task pendingTask = new Task();
+//        pendingTask.setCreatedAt(new Date());
+//        pendingTask.setModifiedAt(new Date());
+//        pendingTask.setDateTime(new Date());
+//        pendingTask.setDescription("Test task number 1");
+//        pendingTask.setTask("Fix bug in query");
+//        pendingTask.setTaskStatusBean(pendingStatus);
+//        pendingTask.setUser(testUser);
+//
+//        tasksRepository.save(pendingTask);
+//
+//        log.info("Success doing initial data insert. All seems to work fine on application startup.");
     }
 }

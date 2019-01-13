@@ -2,6 +2,7 @@ package com.ajk.taskman.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.envers.NotAudited;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -21,6 +22,7 @@ public class TaskStatus implements Serializable {
     private String description;
 
     //bi-directional many-to-one association to Task
+    @NotAudited
     @OneToMany(mappedBy = "taskStatusBean", fetch = FetchType.LAZY)
     private List<Task> tasks;
 

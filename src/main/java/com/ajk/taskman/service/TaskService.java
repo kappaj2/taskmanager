@@ -9,7 +9,7 @@ public interface TaskService {
 
     TaskPojo creatTask(Integer userId, TaskPojo taskPojo);
 
-    TaskPojo updateTask(Integer userId, TaskPojo taskPojo);
+    TaskPojo updateTask(Integer userId, Integer taskId, TaskPojo taskPojo);
 
     TaskPojo getTask(Integer userId, Integer taskId);
 

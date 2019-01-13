@@ -13,7 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 
@@ -35,10 +34,8 @@ public class UserServiceImpl implements UserService {
         Calendar cal = Calendar.getInstance();
 
         User users = new User();
-        users.setCreatedAt(new Date(cal.getTime().getTime()));
         users.setFirstName("FirstName1");
         users.setLastName("LastName1");
-        users.setModifiedAt(new Date(cal.getTime().getTime()));
         users.setUsername("UserName1");
 
         usersRepository.save(users);
@@ -80,8 +77,6 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public UserPojo createUser(UserPojo userPojo) {
         User user = userMapper.asModel(userPojo);
-        user.setCreatedAt(new Date());
-        user.setModifiedAt(new Date());
         return userMapper.asPojo(usersRepository.save(user));
     }
 
@@ -98,7 +93,6 @@ public class UserServiceImpl implements UserService {
         User user = findUserById(userId);
         user.setFirstName(userPojo.getFirstName());
         user.setLastName(userPojo.getLastName());
-        user.setModifiedAt(new Date());
         return userMapper.asPojo(usersRepository.save(user));
     }
 

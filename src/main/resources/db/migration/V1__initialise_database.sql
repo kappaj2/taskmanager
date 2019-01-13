@@ -1,3 +1,5 @@
+--  MySQL Script to create the tables for the application.
+--  This table will be able to hold the application version information available on an API endpoint.
 
 CREATE TABLE `application` (
   `id` INT NOT NULL AUTO_INCREMENT,

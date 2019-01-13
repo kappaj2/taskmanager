@@ -48,12 +48,19 @@ public class AbstractTest {
         }
 
         public void whenExecuteHttpRequest(Class targetClass, HttpMethod method, HttpEntity<?> responseEntity, Object... urlVariables) {
-            response = restTemplate.exchange(
-                    UriComponentsBuilder.fromUriString(url).build().toString(),
-                    method,
-                    responseEntity,
-                    targetClass,
-                    urlVariables);
+            if (method == HttpMethod.DELETE) {
+                response = restTemplate.exchange(UriComponentsBuilder.fromUriString(url).build().toString(),
+                        method,
+                        responseEntity,
+                        String.class);
+            } else {
+                response = restTemplate.exchange(
+                        UriComponentsBuilder.fromUriString(url).build().toString(),
+                        method,
+                        responseEntity,
+                        targetClass,
+                        urlVariables);
+            }
         }
 
         public void whenExecuteHttpRequest(Class targetClass, HttpMethod method, Object... urlVariables) {
