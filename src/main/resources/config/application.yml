@@ -20,11 +20,6 @@ spring:
         prepStmtCacheSqlLimit: 2048
         useServerPrepStmts: true
 
-#  datasource:
-#    url: jdbc:h2:file:~/PUBLIC;DB_CLOSE_ON_EXIT=TRUE;mode=mysql
-#    username:  sa
-#    driver-class-name: org.h2.Driver
-
   jpa:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     database: MYSQL

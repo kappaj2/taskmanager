@@ -35,9 +35,6 @@ public class TaskServiceImplTest {
     @MockBean
     private TasksRepository tasksRepository;
 
-    @MockBean
-    private UsersRepository usersRepository;
-
     @Before
     public void setup() {
         fixture = new Fixture();
